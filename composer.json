@@ -1,0 +1,24 @@
+{
+    "name": "woodsandwalker/faker-picture",
+    "type": "library",
+    "description": "A provider for FakerPHP to generate images from https://picsum.photos.",
+    "keywords": [
+        "faker"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Walker",
+            "homepage": "https://woodsandwalker.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "WW\\Faker\\": "src/Faker/"
+        }
+    }
+}
