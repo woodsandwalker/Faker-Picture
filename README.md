@@ -1,4 +1,7 @@
 # Faker-Image
+[![Packagist Downloads](https://img.shields.io/packagist/dt/woodsandwalker/faker-picture?color=brightgreen)](https://packagist.org/packages/woodsandwalker/faker-picture)
+[![Packagist Version](https://img.shields.io/packagist/v/woodsandwalker/faker-picture?color=brightgreen)](https://packagist.org/packages/woodsandwalker/faker-picture)
+
 Faker-Image is a provider for the [FakerPHP](https://github.com/FakerPHP/Faker) library to get a random image URL from [picsum.photos](https://picsum.photos).
 
 ## Getting Started
