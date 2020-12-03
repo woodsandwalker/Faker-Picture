@@ -1,16 +1,16 @@
-# Faker-Image
+# Faker-Picture
 [![Packagist Downloads](https://img.shields.io/packagist/dt/woodsandwalker/faker-picture?color=brightgreen)](https://packagist.org/packages/woodsandwalker/faker-picture)
 [![Packagist Version](https://img.shields.io/packagist/v/woodsandwalker/faker-picture?color=brightgreen)](https://packagist.org/packages/woodsandwalker/faker-picture)
 
-Faker-Image is a provider for the [FakerPHP](https://github.com/FakerPHP/Faker) library to get a random image URL from [picsum.photos](https://picsum.photos).
+Faker-Picture is a provider for the [FakerPHP](https://github.com/FakerPHP/Faker) library to get a random image URL from [picsum.photos](https://picsum.photos).
 
 ## Getting Started
 
 ### Installation
-Faker-Image requires fakerphp/faker >= 1.12
+Faker-Picture requires fakerphp/faker >= 1.12
 
 ```shell
-composer require woodsandwalker/faker-image
+composer require woodsandwalker/faker-picture
 ```
 
 ### Basic Usage
