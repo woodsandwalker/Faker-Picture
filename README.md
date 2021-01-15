@@ -12,6 +12,10 @@ Faker-Picture requires fakerphp/faker >= 1.12
 ```shell
 composer require woodsandwalker/faker-picture
 ```
+&
+```shell
+replace file Picture.php by mine !
+```
 
 ### Basic Usage
 
