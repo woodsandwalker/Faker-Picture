@@ -12,6 +12,10 @@ Faker-Picture requires fakerphp/faker >= 1.12
 ```shell
 composer require woodsandwalker/faker-picture
 ```
+&
+```shell
+replace file Picture.php by mine !
+```
 
 ### Basic Usage
 
@@ -33,7 +37,7 @@ echo $faker->pictureUrl(
     false,	// grayscale (boolean)
     0,		// blur (0 = no blur, 10 = max blur)
 );
-// 'https://picsum.photos/640/480'
+// 'https://picsum.photos/640/480?random=52380'
 
 // generate and save picture and return filepath
 echo $faker->picture(

@@ -2,60 +2,37 @@
 
 namespace WW\Faker\Provider;
 
-use Faker\Provider\Base;
+//use Faker\Provider\Base;
+use Faker\Provider\Base as BaseProvider;
 
 /**
  * Depends on image generation from https://picsum.photos/
  */
-class Picture extends Base
+
+class Picture extends BaseProvider
 {
-    /** @var string */
-    public const BASE_URL = 'https://picsum.photos';
-
-    /**
-     * Generate the URL that will return a random image
-     *
-     * Set randomize to false to remove the random GET parameter at the end of the url.
-     *
-     * @example 'https://picsum.photos/640x480.png?grayscale=1&blur=2'
-     *
-     * @param int $width
-     * @param int $height
-     * @param bool $grayscale
-     * @param int $blur
-     *
-     * @return string
-     */
-    public static function pictureUrl(
-        $width = 640,
-        $height = 480,
-        $grayscale = false,
-        $blur = 0
-    ) {
-        $path = sprintf('%s/%s', $width, $height);
-
-        $queryParams = [];
-
-        if( $grayscale ) {
-            $queryParams['grayscale'] = true;
+    public static function pictureUrl($width = 640, $height = 480, $id = null, $randomize = true, $gray = false, $blur = null)
+    {
+        $baseUrl = 'https://picsum.photos/';
+        $url = '';
+        if ($id) {
+            $url = 'id/' . $id . '/';
         }
-
-        if( $blur > 0 ) {
-            if( $blur > 10 ) {
-                $blur = 10;
-            }
-            $queryParams['blur'] = $blur;
-        }
-
-        $queryString = ( ! empty($queryParams) ? http_build_query($queryParams) : false );
-
-        return sprintf(
-            '%s/%s%s',
-            self::BASE_URL,
-            $path,
-            ( $queryString ? '?' . $queryString : '' )
-        );
+        $url .= "{$width}/{$height}";
+        $queryString = self::buildQueryString($gray, $blur, $randomize);
+        return $baseUrl . $url . $queryString;
     }
+
+    public static function picsumStaticRandomUrl($width = 640, $height = 480, $gray = false, $blur = null)
+    {
+        $baseUrl = 'https://picsum.photos/';
+
+        $url = 'seed/' . uniqid() . '/' . "{$width}/{$height}";
+        $queryString = self::buildQueryString($gray, $blur, null);
+
+        return $baseUrl . $url . $queryString;
+    }
+
 
     /**
      * Download a remote random image to disk and return its location
@@ -111,5 +88,24 @@ class Picture extends Base
         }
 
         return $fullPath ? $filepath : $filename;
+    }
+
+    private static function buildQueryString($gray, $blur, $randomize)
+    {
+        $queryParams = array();
+        if ($gray) {
+            $queryParams['grayscale'] = '';
+        }
+        if ($blur) {
+            $queryParams['blur'] = '';
+        }
+        if ($randomize) {
+            $queryParams['random'] = static::randomNumber(5, true);
+        }
+        $queryString = '';
+        if (!empty($queryParams)) {
+            $queryString = '?' . http_build_query($queryParams);
+        }
+        return $queryString;
     }
 }
